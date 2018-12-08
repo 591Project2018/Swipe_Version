@@ -1,0 +1,30 @@
+package com.ja.getdevicelocation;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class Day5 extends AppCompatActivity {
+    private TextView real_weather, real_pressure, location,temp;
+    private String url;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_day5);
+        Intent intent=getIntent();
+        String city=intent.getStringExtra("city");
+        String pressure=intent.getStringExtra("pressure");
+        String mainWeather=intent.getStringExtra("descp");
+        String tempMax=intent.getStringExtra("day2Temp");
+        location=findViewById(R.id.location);
+        real_weather=findViewById(R.id.weather);
+        real_pressure=findViewById(R.id.pressure);
+        temp=findViewById(R.id.temp);
+        location.setText(city+" Day5");
+        real_weather.setText(mainWeather);
+        real_pressure.setText(pressure);
+        url=intent.getStringExtra("forecastURL");
+        temp.setText(tempMax);
+    }
+}
