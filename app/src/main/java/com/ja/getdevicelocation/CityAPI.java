@@ -1,3 +1,4 @@
+
 package com.ja.getdevicelocation;
 
 import java.io.BufferedReader;
@@ -43,7 +44,9 @@ public class CityAPI {
         JSONArray jArray1 = jObj.getJSONArray("weather");
         String mainWeather=jArray1.getJSONObject(0).getString("main");
         double tempMin=jObj.getJSONObject("main").getDouble("temp_min")-TEMP_CONVERT;
+        tempMin=(double)(Math.round(tempMin*100)/100.0);
         double tempMax=jObj.getJSONObject("main").getDouble("temp_max")-TEMP_CONVERT;
+        tempMax=(double)(Math.round(tempMax*100)/100.0);
         double pressure=jObj.getJSONObject("main").getDouble("pressure");
         int humid=jObj.getJSONObject("main").getInt("humidity");
         String city=jObj.getString("name");
